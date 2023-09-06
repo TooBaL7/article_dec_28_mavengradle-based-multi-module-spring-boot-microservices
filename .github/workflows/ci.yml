@@ -18,6 +18,24 @@ jobs:
         distribution: 'temurin'
         architecture: x64
         
+    - name: Secret
+      run: ${{ secrets.SONAR_TOKEN }}
+    
+    - name: Compile Gradle
+      run: |
+        chmod +x gradlew
+        ./gradlew build
+        
+    - name: Analisis Sonar
+      run: |
+        chmod +x gradlew
+        ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+    
+    
+    
+    
+    
+    
     #- name: Build with Maven
      # run: mvn -B verify --file pom.xml
       
@@ -26,16 +44,16 @@ jobs:
     #  uses: sonarsource/sonarcloud-github-action@master
 
     
-    - name: SonarCloud Scan
+   # - name: SonarCloud Scan
       #uses: sonarsource/sonarcloud-github-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #  env:
+     #     GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
-      run: mvn -B verify --file pom.xml sonar:sonar 
-             -Dsonar.host.url="https://sonarcloud.io" 
-             -Dsonar.organization="toobal7"
-             -Dsonar.projectKey= "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
+      # run: mvn -B verify --file pom.xml sonar:sonar 
+       #      -Dsonar.host.url="https://sonarcloud.io" 
+        #     -Dsonar.organization="toobal7"
+         #    -Dsonar.projectKey= "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
           
       #with:
        # args: >   
