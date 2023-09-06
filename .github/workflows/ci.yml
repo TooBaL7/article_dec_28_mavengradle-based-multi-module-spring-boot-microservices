@@ -18,8 +18,8 @@ jobs:
         distribution: 'temurin'
         architecture: x64
         
-    - name: Secret
-      run: ${{ secrets.SONAR_TOKEN }}
+    #- name: Secret
+     # run: ${{ secrets.SONAR_TOKEN }}
     
     - name: Compile Gradle
       run: |
