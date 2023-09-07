@@ -17,14 +17,20 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         architecture: x64
-        
-    #- name: Secret
-     # run: ${{ secrets.SONAR_TOKEN }}
     
     - name: Compile Gradle
       run: |
         chmod +x gradlew
-        ./gradlew clean :service-a:build
+        ./gradlew clean :service-a:build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+
+
+
+
+
+
+  #- name: Secret
+     # run: ${{ secrets.SONAR_TOKEN }}
         
    #- name: Analisis Sonar
    #   uses: jinguji/sonarcloud-gradle-github-action@v2
