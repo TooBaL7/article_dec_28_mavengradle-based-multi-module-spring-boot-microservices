@@ -24,7 +24,7 @@ jobs:
     - name: Compile Gradle
       run: |
         chmod +x gradlew
-        ./gradlew clean :service-a
+        ./gradlew clean :service-a:build
         
    #- name: Analisis Sonar
    #   uses: jinguji/sonarcloud-gradle-github-action@v2
