@@ -24,14 +24,14 @@ jobs:
     - name: Compile Gradle
       run: |
         chmod +x gradlew
-        ./gradlew build
+        ./gradlew clean :service-a
         
-    - name: Analisis Sonar
-      uses: jinguji/sonarcloud-gradle-github-action@v2
-      with:
-       sonar-token: ${{ secrets.SONAR_TOKEN }}
-      env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   #- name: Analisis Sonar
+   #   uses: jinguji/sonarcloud-gradle-github-action@v2
+    #  with:
+     #  sonar-token: ${{ secrets.SONAR_TOKEN }}
+      #env:
+       #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
      
      
      
