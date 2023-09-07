@@ -1,7 +1,6 @@
 name: CI App
 on:
   push
-concurrency: ci-app-${{ github.ref }}
 jobs:
 
  build:
@@ -25,11 +24,11 @@ jobs:
         chmod +x gradlew
         ./gradlew clean build 
 
-  #  - name: Run SonarCloud Analysis
-   #   run: |
-    #    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-     #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #  SONAR_HOST_URL:"https://sonarcloud.io/"
+    - name: Run SonarCloud Analysis
+      run: |
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL:"https://sonarcloud.io/"
 
 
   #  - name: SonarCloud Scan
