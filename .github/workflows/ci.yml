@@ -23,7 +23,7 @@ jobs:
     - name: Compile Gradle
       run: |
         chmod +x gradlew
-        ./gradlew clean :service-a:build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        ./gradlew clean build 
 
 
 
