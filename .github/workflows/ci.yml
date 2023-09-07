@@ -20,10 +20,13 @@ jobs:
         architecture: x64
 
     
-    - name: Compile Gradle
-      run: |
-        chmod +x gradlew
-        ./gradlew clean build 
+   # - name: Compile Gradle
+    #  run: |
+     #   chmod +x gradlew
+      #  ./gradlew clean build 
+
+    - name: Build with Maven
+      run: mvn -B verify --file pom.xml
 
 
     - name: SonarCloud Scan
