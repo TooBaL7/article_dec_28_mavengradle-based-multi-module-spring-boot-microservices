@@ -23,23 +23,38 @@ jobs:
       run: |
         chmod +x gradlew
         ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+       
 
+    - name: build and push to docker
+      uses: docker/build-push-action@v2
+      with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ github.repository }}
+   
+    
+    
+    
+    
+    
+    
+    
+    
+#    - name: Docker build
+ #     run: |
+  #      docker build --tag toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest .
 
-    - name: Docker build
-      run: |
-        docker build --tag toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest .
+   # - name: Docker Push
+    #  run: |
+     #   docker push toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest
 
-    - name: Docker Push
-      run: |
-        docker push toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest
+ #deploy:
+  # needs: build
+   #runs-on: self-hosted
+   #steps:
 
- deploy:
-   needs: build
-   runs-on: self-hosted
-   steps:
-
-      - name: Checkout
-        uses: actions/checkout@v3
+#      - name: Checkout
+ #       uses: actions/checkout@v3
 
      # - name: 
     
