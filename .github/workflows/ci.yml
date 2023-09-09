@@ -19,83 +19,8 @@ jobs:
         architecture: x64
 
     
-    - name: Compile Gradle
+    - name: Compile Gradle and sonar scanner
       run: |
         chmod +x gradlew
         ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
-    #- name: Run SonarCloud Analysis
-     # run: |
-      #  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-       # SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        #SONAR_HOST_URL:"https://sonarcloud.io/"
-
-
-  #  - name: SonarCloud Scan
-   #   uses: SonarSource/sonarcloud-github-action@master
-    #  env:
-     #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-      #  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-     
-    
-   
-   # - name: SonarCloud Scan
-    #  uses: jinguji/sonarcloud-gradle-github-action@v2
-     # with:
-      #  sonar-token: ${{ secrets.SONAR_TOKEN }}
-      #env:
-       # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-   
-   
-   # - name: SonarCloud Scan
-    #  uses: sonarsource/sonarcloud-github-action@master
-     # env:
-      #    GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-       #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-
-  #- name: Secret
-     # run: ${{ secrets.SONAR_TOKEN }}
-    
-     
-     # run: |
-      #  chmod +x gradlew
-       # ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-    
-    
-    
-    
-    #- name: Build with Maven
-     # run: mvn -B verify --file pom.xml
-    
-    
-    #- name: Build with Maven
-     # run: mvn -B verify --file pom.xml
-      
-    
-   # - name: set up  maven 
-    #  uses: sonarsource/sonarcloud-github-action@master
-
-    
-   # - name: SonarCloud Scan
-      #uses: sonarsource/sonarcloud-github-action@master
-    #  env:
-     #     GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
-      # run: mvn -B verify --file pom.xml sonar:sonar 
-       #      -Dsonar.host.url="https://sonarcloud.io" 
-        #     -Dsonar.organization="toobal7"
-         #    -Dsonar.projectKey= "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
-          
-      #with:
-       # args: >   
-        #     -Dsonar.sources="src"
-         #    -Dsonar.host.url="https://sonarcloud.io" 
-          #   -Dsonar.organization="toobal7"
-           #  -Dsonar.projectKey= "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
-     
-      
-            
