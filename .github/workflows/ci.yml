@@ -27,11 +27,11 @@ jobs:
 
     - name: Docker build
       run: |
-        docker build --tag TooBaL7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest .
+        docker build --tag toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest .
 
     - name: Docker Push
       run: |
-        docker push TooBaL7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest
+        docker push toobal7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest
 
  deploy:
    needs: build
