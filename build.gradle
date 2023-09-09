@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 	id "org.sonarqube" version "4.3.1.3277"
 }
-}
+
 sonar {
   properties {
     property "sonar.projectKey", "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
