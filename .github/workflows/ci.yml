@@ -24,3 +24,23 @@ jobs:
         chmod +x gradlew
         ./gradlew build sonar -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
+
+    - name: Docker build
+      run: |
+        docker build --tag TooBaL7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest .
+
+    - name: Docker Push
+      run: |
+        docker push TooBaL7/article_dec_28_mavengradle-based-multi-module-spring-boot-microservices:lastest
+
+ deploy:
+   needs: build
+   runs-on: self-hosted
+   steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+     # - name: 
+    
+ 
