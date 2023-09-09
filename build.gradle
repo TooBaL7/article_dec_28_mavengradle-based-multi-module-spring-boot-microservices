@@ -52,7 +52,6 @@ subprojects {
 	dependencies {
 		implementation 'org.yaml:snakeyaml:1.27'
 		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation 'org.sonarsource.scanner.maven:sonar'
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	}
