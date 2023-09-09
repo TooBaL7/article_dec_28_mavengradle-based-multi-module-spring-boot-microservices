@@ -2,6 +2,15 @@ plugins {
 	id 'org.springframework.boot' version '2.4.1'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "4.3.1.3277"
+}
+}
+sonar {
+  properties {
+    property "sonar.projectKey", "TooBaL7_article_dec_28_mavengradle-based-multi-module-spring-boot-microservices"
+    property "sonar.organization", "toobal7"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 repositories {
@@ -33,9 +42,17 @@ subprojects {
 		useJUnitPlatform()
 	}
 
+	sonar {
+  properties {
+    property "sonar.sources", "src/main"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
 	dependencies {
 		implementation 'org.yaml:snakeyaml:1.27'
 		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.sonarsource.scanner.maven:sonar'
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	}
